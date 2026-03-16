@@ -79,7 +79,6 @@
   &-link {
     margin: 0 0.25rem;
     font-size: 1em;
-    padding: 0.4rem;
     border-radius: 10%;
   }
 
@@ -90,6 +89,8 @@
 }
 
 .nav-anchor {
+  display: block;
+  padding: 0.4rem;
   text-decoration: none;
   color: var(--color-text);
   transition: opacity 0.2s ease;
