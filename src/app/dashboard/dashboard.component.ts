@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WindowResizeService } from '../windowresize.service';
-import { debounceTime, fromEvent } from 'rxjs';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { CarouselImage } from '../carousel/carousel.component';
 
-@UntilDestroy()
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,7 +10,29 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 export class DashboardComponent implements OnInit {
   mode: string = 'light';
 
-  constructor(private windowResizeService: WindowResizeService) {}
+  zygardenImages: CarouselImage[] = [
+    { src: 'assets/images/zygarden.png', alt: 'Zygarden homepage', link: 'https://zygarden.gg' },
+    {
+      src: 'assets/images/zygardenstandings.png',
+      alt: 'Zygarden standings',
+      link: 'https://zygarden.gg/tournaments/player/0194c8b7-1a2d-4c27-b085-ea70db59edb7/tournament/019b70ab-a9ed-490d-8443-1b90e57c7a91',
+    },
+    {
+      src: 'assets/images/zygardenbracket.png',
+      alt: 'Zygarden Arbor League bracket',
+      link: 'https://zygarden.gg/tournaments/player/01994393-6c31-43d7-8e16-ca5c0bc991a0/tournament/019ccda7-3f4d-4ed9-968e-373cc279a6e2?isPublic=true',
+    },
+    {
+      src: 'assets/images/zygardenpreciouspaths.png',
+      alt: 'Zygarden Precious Paths tournament',
+      link: 'https://zygarden.gg/tournaments/player/0194c8b7-1a2d-4c27-b085-ea70db59edb7/tournament/019b70ab-a9ed-490d-8443-1b90e57c7a91',
+    },
+    {
+      src: 'assets/images/zygardenpreciouspathsbracket.png',
+      alt: 'Zygarden Precious Paths bracket',
+      link: 'https://zygarden.gg/tournaments/player/0194c8b7-1a2d-4c27-b085-ea70db59edb7/tournament/019b70ab-a9ed-490d-8443-1b90e57c7a91',
+    },
+  ];
 
   ngOnInit() {
     const saved = localStorage.getItem('portfolio-mode');
@@ -22,21 +41,6 @@ export class DashboardComponent implements OnInit {
       this.mode = 'dark';
       element?.classList.add('mode-dark');
     }
-  }
-
-  ngAfterViewInit() {
-    this.handleWindowResize();
-    fromEvent(window, 'resize')
-      .pipe(debounceTime(200), untilDestroyed(this))
-      .subscribe(() => {
-        this.handleWindowResize();
-      });
-  }
-
-  handleWindowResize() {
-    this.windowResizeService.handleWindowResize('project-one-img');
-    this.windowResizeService.handleWindowResize('project-two-img');
-    this.windowResizeService.handleWindowResize('project-three-img');
   }
 
   toggleMode() {

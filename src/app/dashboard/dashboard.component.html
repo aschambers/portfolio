@@ -24,16 +24,9 @@
 
 <h2 class="sr-only">Projects</h2>
 
-<div class="project-one">
-  <a href="https://zygarden.gg/" target="_blank">
-    <img
-      id="project-one-img"
-      class="project-one-img"
-      src="assets/images/zygarden.png"
-      alt="Zygarden tournament app screenshot"
-    />
-  </a>
-  <div class="project-one-desc">
+<div class="project">
+  <app-carousel [images]="zygardenImages"></app-carousel>
+  <div class="project-desc">
     <h3 class="project-title">Zygarden</h3>
     <p>
       Tournament management platform for the competitive Pokémon GO community, supporting Swiss,
@@ -52,30 +45,22 @@
           'Tailwind',
           'OAuth 2.0',
           'Jest',
-          'Digital Ocean',
+          'Digital Ocean'
         ];
         track badge
       ) {
         <span class="badge">{{ badge }}</span>
       }
     </div>
-    <div class="project-one-links">
+    <div class="project-links">
       <a class="project-link-btn" href="https://zygarden.gg/" target="_blank">url</a>
     </div>
   </div>
 </div>
 
-<div class="project-two">
-  <a href="https://aschambers.github.io/sleep-visualizer/" target="_blank">
-    <img
-      id="project-two-img"
-      class="project-two-img"
-      src="assets/images/sleepvisualizer.png"
-      alt="Sleep Visualizer app screenshot"
-      loading="lazy"
-    />
-  </a>
-  <div class="project-two-desc">
+<div class="project">
+  <img class="project-img" src="assets/images/sleepvisualizer.png" alt="Sleep Visualizer app screenshot" loading="lazy" />
+  <div class="project-desc">
     <h3 class="project-title">Sleep Visualizer</h3>
     <p>
       Tool for Pokémon Sleep players to calculate recipe strength for Snorlax and explore game
@@ -86,11 +71,8 @@
         <span class="badge">{{ badge }}</span>
       }
     </div>
-    <div class="project-two-links">
-      <a
-        class="project-link-btn"
-        href="https://aschambers.github.io/sleep-visualizer/"
-        target="_blank"
+    <div class="project-links">
+      <a class="project-link-btn" href="https://aschambers.github.io/sleep-visualizer/" target="_blank"
         >url</a
       >
       <a
@@ -103,17 +85,9 @@
   </div>
 </div>
 
-<div class="project-three">
-  <a href="https://aschambers.github.io/replay-visualizer/" target="_blank">
-    <img
-      id="project-three-img"
-      class="project-three-img"
-      src="assets/images/replayvisualizer.png"
-      alt="Replay Visualizer app screenshot"
-      loading="lazy"
-    />
-  </a>
-  <div class="project-three-desc">
+<div class="project">
+  <img class="project-img" src="assets/images/replayvisualizer.png" alt="Replay Visualizer app screenshot" loading="lazy" />
+  <div class="project-desc">
     <h3 class="project-title">Replay Visualizer</h3>
     <p>
       Parses Pokémon GO battle replays to surface trends and statistics, giving competitive players
@@ -124,7 +98,7 @@
         <span class="badge">{{ badge }}</span>
       }
     </div>
-    <div class="project-three-links">
+    <div class="project-links">
       <a
         class="project-link-btn"
         href="https://aschambers.github.io/replay-visualizer/"
