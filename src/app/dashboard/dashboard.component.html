@@ -1,32 +1,9 @@
-<div class="header">
-  <div class="name-block">
-    <h1 class="name">Allison Schambers</h1>
-    <p class="title">Senior Software Developer</p>
-  </div>
-  <div class="header-right">
-    <ul class="nav">
-      <li class="nav-link"><a class="nav-anchor" [routerLink]="'/'">About</a></li>
-      <li class="nav-link"><a class="nav-anchor" [routerLink]="'/projects'">Projects</a></li>
-      <li class="nav-link">
-        <a class="nav-anchor" href="assets/Allison_Schambers_Resume.pdf" target="_blank">Resume</a>
-      </li>
-    </ul>
-    <button (click)="toggleMode()" class="mode" aria-label="Toggle color mode">
-      @if (mode === 'light') {
-        <img class="sun" src="assets/images/sun.png" />
-      }
-      @if (mode === 'dark') {
-        <img class="moon" src="assets/images/moon.png" />
-      }
-    </button>
-  </div>
-</div>
 
 <h2 class="sr-only">Projects</h2>
 
 <div class="project">
-  <app-carousel [images]="zygardenImages"></app-carousel>
-  <div class="project-desc">
+  <app-carousel [images]="zygardenImages" (loaded)="zygardenLoaded.set(true)"></app-carousel>
+  <div class="project-desc" [style.visibility]="zygardenLoaded() ? 'visible' : 'hidden'">
     <h3 class="project-title">Zygarden</h3>
     <p>
       Tournament management platform for the competitive Pokémon GO community, supporting Swiss,
@@ -58,12 +35,15 @@
   </div>
 </div>
 
-<div class="project">
+<div class="project" [style.visibility]="sleepLoaded() ? 'visible' : 'hidden'">
   <img
     class="project-img"
     src="assets/images/sleepvisualizer.png"
     alt="Sleep Visualizer app screenshot"
+    width="1051"
+    height="1303"
     loading="lazy"
+    (load)="sleepLoaded.set(true)"
   />
   <div class="project-desc">
     <h3 class="project-title">Sleep Visualizer</h3>
@@ -93,12 +73,15 @@
   </div>
 </div>
 
-<div class="project">
+<div class="project" [style.visibility]="replayLoaded() ? 'visible' : 'hidden'">
   <img
     class="project-img"
     src="assets/images/replayvisualizer.png"
     alt="Replay Visualizer app screenshot"
+    width="1656"
+    height="1303"
     loading="lazy"
+    (load)="replayLoaded.set(true)"
   />
   <div class="project-desc">
     <h3 class="project-title">Replay Visualizer</h3>

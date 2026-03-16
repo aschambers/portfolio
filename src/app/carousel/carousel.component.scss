@@ -5,9 +5,11 @@
 .carousel-track {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 10;
 
   a {
     display: block;
+    height: 100%;
   }
 }
 
@@ -17,6 +19,7 @@ a .carousel-img {
 
 .carousel-img {
   width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
   border: 1px solid var(--color-section-border);

@@ -1,67 +1,73 @@
 <div class="carousel">
   <div class="carousel-track">
-    @if (images[currentIndex].link) {
-      <a [href]="images[currentIndex].link" target="_blank" rel="noopener noreferrer">
+    @if (images().length > 0) {
+      @if (images()[currentIndex()].link) {
+        <a [href]="images()[currentIndex()].link" target="_blank" rel="noopener noreferrer">
+          <img
+            class="carousel-img"
+            [src]="images()[currentIndex()].src"
+            [alt]="images()[currentIndex()].alt"
+            (load)="onImageLoad()"
+          />
+        </a>
+      } @else {
         <img
           class="carousel-img"
-          [src]="images[currentIndex].src"
-          [alt]="images[currentIndex].alt"
-          loading="lazy"
+          [src]="images()[currentIndex()].src"
+          [alt]="images()[currentIndex()].alt"
+          (load)="onImageLoad()"
         />
-      </a>
-    } @else {
-      <img
-        class="carousel-img"
-        [src]="images[currentIndex].src"
-        [alt]="images[currentIndex].alt"
-        loading="lazy"
-      />
-    }
-    @if (hasMultiple) {
-      <button
-        class="carousel-zone carousel-zone--prev"
-        (click)="prev()"
-        aria-label="Previous image"
-      ></button>
-      <button
-        class="carousel-zone carousel-zone--next"
-        (click)="next()"
-        aria-label="Next image"
-      ></button>
-      <button class="carousel-btn carousel-btn--prev" (click)="prev()" aria-label="Previous image">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+      }
+      @if (hasMultiple()) {
+        <button
+          class="carousel-zone carousel-zone--prev"
+          (click)="prev()"
+          aria-label="Previous image"
+        ></button>
+        <button
+          class="carousel-zone carousel-zone--next"
+          (click)="next()"
+          aria-label="Next image"
+        ></button>
+        <button
+          class="carousel-btn carousel-btn--prev"
+          (click)="prev()"
+          aria-label="Previous image"
         >
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      <button class="carousel-btn carousel-btn--next" (click)="next()" aria-label="Next image">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="carousel-btn carousel-btn--next" (click)="next()" aria-label="Next image">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      }
     }
   </div>
-  @if (hasMultiple) {
+  @if (hasMultiple()) {
     <div class="carousel-dots">
-      @for (image of images; track image.src; let i = $index) {
+      @for (image of images(); track image.src; let i = $index) {
         <button
           class="carousel-dot"
-          [class.carousel-dot--active]="i === currentIndex"
+          [class.carousel-dot--active]="i === currentIndex()"
           (click)="goTo(i)"
           [attr.aria-label]="'Go to image ' + (i + 1)"
         ></button>

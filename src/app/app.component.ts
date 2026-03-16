@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: false,
+  standalone: true,
+  imports: [RouterOutlet, RouterLink],
 })
 export class AppComponent {
-  title = 'portfolio';
+  themeService = inject(ThemeService);
 }

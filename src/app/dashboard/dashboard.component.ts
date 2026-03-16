@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { CarouselImage } from '../carousel/carousel.component';
+import { Component, signal } from '@angular/core';
+import { CarouselComponent, CarouselImage } from '../carousel/carousel.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  standalone: false,
+  standalone: true,
+  imports: [CarouselComponent],
 })
-export class DashboardComponent implements OnInit {
-  mode: string = 'light';
+export class DashboardComponent {
+  zygardenLoaded = signal(false);
+  sleepLoaded = signal(false);
+  replayLoaded = signal(false);
 
   zygardenImages: CarouselImage[] = [
     { src: 'assets/images/zygarden.png', alt: 'Zygarden homepage', link: 'https://zygarden.gg' },
@@ -33,26 +36,4 @@ export class DashboardComponent implements OnInit {
       link: 'https://zygarden.gg/tournaments/player/0194c8b7-1a2d-4c27-b085-ea70db59edb7/tournament/019b70ab-a9ed-490d-8443-1b90e57c7a91',
     },
   ];
-
-  ngOnInit() {
-    const saved = localStorage.getItem('portfolio-mode');
-    const element = document.getElementById('main');
-    if (saved === 'dark') {
-      this.mode = 'dark';
-      element?.classList.add('mode-dark');
-    }
-  }
-
-  toggleMode() {
-    const element = document.getElementById('main');
-    if (this.mode === 'dark' && element) {
-      this.mode = 'light';
-      element.classList.remove('mode-dark');
-      localStorage.setItem('portfolio-mode', 'light');
-    } else if (this.mode === 'light' && element) {
-      this.mode = 'dark';
-      element.classList.add('mode-dark');
-      localStorage.setItem('portfolio-mode', 'dark');
-    }
-  }
 }

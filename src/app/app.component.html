@@ -1,4 +1,27 @@
 <a href="#content" class="skip-link">Skip to main content</a>
+<div class="header">
+  <div class="name-block">
+    <h1 class="name">Allison Schambers</h1>
+    <p class="title">Senior Software Developer</p>
+  </div>
+  <div class="header-right">
+    <ul class="nav">
+      <li class="nav-link"><a class="nav-anchor" [routerLink]="'/'">About</a></li>
+      <li class="nav-link"><a class="nav-anchor" [routerLink]="'/projects'">Projects</a></li>
+      <li class="nav-link">
+        <a class="nav-anchor" href="assets/Allison_Schambers_Resume.pdf" target="_blank">Resume</a>
+      </li>
+    </ul>
+    <button (click)="themeService.toggle()" class="mode" aria-label="Toggle color mode">
+      @if (themeService.mode() === 'light') {
+        <img class="sun" src="assets/images/sun.png" />
+      }
+      @if (themeService.mode() === 'dark') {
+        <img class="moon" src="assets/images/moon.png" />
+      }
+    </button>
+  </div>
+</div>
 <main id="content">
   <router-outlet></router-outlet>
 </main>
