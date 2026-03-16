@@ -5,11 +5,11 @@ import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
-  { path: 'projects', component: DashboardComponent }
+  { path: 'projects', component: DashboardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

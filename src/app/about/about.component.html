@@ -1,59 +1,176 @@
-<div (click)="toggleMode()" class="mode">
-  <img *ngIf="mode === 'light'" class="sun" src="assets/images/sun.png" />
-  <img *ngIf="mode === 'dark'" class="moon" src="assets/images/moon.png" />
-</div>
-
 <div class="header">
-  <p class="name">Allison Schambers</p>
-  <ul class="nav">
-    <li class="nav-link" [routerLink]="'/'">About</li>
-    <li class="nav-link" [routerLink]="'/projects'">Projects</li>
-  </ul>
+  <div class="name-block">
+    <h1 class="name">Allison Schambers</h1>
+    <p class="title">Senior Software Developer</p>
+  </div>
+  <div class="header-right">
+    <ul class="nav">
+      <li class="nav-link"><a class="nav-anchor" [routerLink]="'/'">About</a></li>
+      <li class="nav-link"><a class="nav-anchor" [routerLink]="'/projects'">Projects</a></li>
+      <li class="nav-link">
+        <a class="nav-anchor" href="assets/Allison_Schambers_Resume.pdf" target="_blank">Resume</a>
+      </li>
+    </ul>
+    <button (click)="toggleMode()" class="mode" aria-label="Toggle color mode">
+      @if (mode === 'light') {
+        <img class="sun" src="assets/images/sun.png" />
+      }
+      @if (mode === 'dark') {
+        <img class="moon" src="assets/images/moon.png" />
+      }
+    </button>
+  </div>
 </div>
 
-<div class="about" [ngClass]="mode === 'light' ? 'text-dark border-dark' : 'text-light border-light'">
-  <h2>About Me:</h2>
+<div class="section">
+  <h2>About Me</h2>
+  <div class="about-body">
+    <img class="profile-photo" src="assets/images/profile.png" alt="Allison Schambers" />
+    <div>
+      <p>
+        Senior software developer with 7+ years of professional experience building full-stack web
+        applications. I specialize in crafting solutions that are technically solid, accessible, and
+        great to use. I thrive in collaborative, agile environments and take pride in writing clean,
+        reusable code that stands the test of time. Outside of work, I build Zygarden, a tournament
+        platform for the competitive Pokémon GO community. When I'm not coding, I enjoy video games,
+        swimming, cycling, running, chess, music, and board games.
+      </p>
+      <div class="about-links">
+        <a href="https://www.linkedin.com/in/allison-schambers-b088778a/" class="link">LinkedIn</a>
+        <a href="mailto:allisonschambers20@gmail.com" class="link">Email</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Experience</h2>
+  <div class="experience-item">
+    <div class="experience-header">
+      <div>
+        <span class="experience-role">Software Engineer</span>
+        <span class="experience-company">Global Medical Response</span>
+      </div>
+      <span class="experience-dates">May 2018 – Present</span>
+    </div>
+    <ul class="experience-bullets">
+      <li>
+        Contributed to frontend and backend development for Transport.net, connecting with Logis,
+        EPIC, and TCS to deliver healthcare to over 15 million patients annually.
+      </li>
+      <li>
+        Conceptualized and led development of Transport Tracking, a real-time transport booking
+        platform adopted nationwide, enabling healthcare staff to schedule ground, air, and
+        rideshare medical transport with live ETAs and full visibility from dispatch to arrival.
+      </li>
+      <li>
+        Boosted team productivity and E2E cycle time by 50% through Agile methodologies, stakeholder
+        engagement, and a focus on clean, reusable, and accessible code.
+      </li>
+      <li>
+        Wrote integration and unit tests with Jest and xUnit, improving code quality and reducing
+        regressions.
+      </li>
+      <li>
+        Created onboarding documentation that reduced ramp-up time for new team members by 3 weeks.
+      </li>
+    </ul>
+    <p class="experience-tech">
+      Angular · React · TypeScript · C# · .NET · SQL Server · MySQL · Azure · SignalR · Jest · xUnit
+    </p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Technical Skills</h2>
   <p>
-
+    <b>Frontend</b>: HTML, CSS, SCSS, Tailwind, TypeScript, JavaScript, React, Redux, Angular, Jest
+    Mock Testing
   </p>
-    I'm eager to learn and find the best solutions when solving problems.
-    I also enjoy working on teams where everyone can learn from eachother.
-    Lately, I've been excited about being part of a team that is working to
-    create a user experience unlike anything the Pokemon GO community has
-    seen. I love using my creativity and logic, and working on these kinds
-    of projects really drives my passion and excitement for web development.
-    When I'm not at my computer, I like to play video games, swim, bike, run,
-    play chess, listen to music, play board games, and spend time with friends.
-  <div class="about-container">
-    <a href="https://www.linkedin.com/in/allison-schambers-b088778a/" [ngClass]="mode === 'light' ? 'link' : 'link-light'">Linkedin</a>
-  </div>
-</div>
-
-<div class="github" [ngClass]="mode === 'light' ? 'text-dark border-dark' : 'text-light border-light'">
-  <h2>Technical Experience:</h2>
-  <p><b>Frontend</b>: HTML, CSS, SCSS, Tailwindcss, JavaScript, React, Redux, Angular, Jest Mock Testing</p>
   <p><b>Backend</b>: Node.js, Express, SQL Server, MySQL, PostgreSQL, Knex, MongoDB, C#, .NET</p>
-  <p><b>Other</b>: Socket.io, SignalR, Git CLI, Python, Vue, JS Algorithms, Figma Prototyping, Amazon EC2 Deplyments, Azure Devops, Github Actions</p>
-  <p><b>Methodologies</b>: Agile Scrum, JIRA, Kanban boards, Databases, RESTful API's, CRUD apps, Testing, Frontend & Backend Development</p>
+  <p>
+    <b>Other</b>: Socket.io, SignalR, Git CLI, Python, Bruno, JS Algorithms, Figma Prototyping,
+    Amazon EC2 Deployments, Azure DevOps, GitHub Actions
+  </p>
+  <p>
+    <b>Methodologies</b>: Agile Scrum, JIRA, Kanban boards, RESTful APIs, CRUD apps, Testing,
+    Frontend & Backend Development
+  </p>
   <div class="icons-container">
-    <img class="icon" src="assets/images/angular.png">
-    <img class="icon" src="assets/images/react.png">
-    <img class="icon" src="assets/images/rnative.png">
-    <img class="icon" src="assets/images/vue.png">
-    <img class="icon" src="assets/images/javascript.png">
-    <img class="icon" src="assets/images/jest.png">
-    <img class="icon" src="assets/images/sass.png">
-    <img class="icon" src="assets/images/tailwindcss.png">
-    <img class="icon" src="assets/images/nodejs.png">
-    <img class="icon" src="assets/images/postgresql.png">
-    <img class="icon" src="assets/images/git.png">
-    <img class="icon" src="assets/images/sql.png">
-    <img class="icon" src="assets/images/python.png">
-    <img class="icon" src="assets/images/csharp.png">
-    <img class="icon" src="assets/images/postman.png">
-    <img class="icon" src="assets/images/socketio.png">
+    <div class="icon-item">
+      <img class="icon" src="assets/images/angular.png" alt="Angular" />
+      <span class="icon-label">Angular</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/react.png" alt="React" />
+      <span class="icon-label">React</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/rnative.png" alt="React Native" />
+      <span class="icon-label">React Native</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/typescript.svg" alt="TypeScript" />
+      <span class="icon-label">TypeScript</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/javascript.png" alt="JavaScript" />
+      <span class="icon-label">JavaScript</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/jest.png" alt="Jest" />
+      <span class="icon-label">Jest</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/sass.png" alt="Sass" />
+      <span class="icon-label">Sass</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/tailwindcss.png" alt="Tailwind CSS" />
+      <span class="icon-label">Tailwind</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/nodejs.png" alt="Node.js" />
+      <span class="icon-label">Node.js</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/postgresql.png" alt="PostgreSQL" />
+      <span class="icon-label">PostgreSQL</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/git.png" alt="Git" />
+      <span class="icon-label">Git</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/sql.png" alt="SQL" />
+      <span class="icon-label">SQL</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/python.png" alt="Python" />
+      <span class="icon-label">Python</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/csharp.png" alt="C#" />
+      <span class="icon-label">C#</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/postman.png" alt="Postman" />
+      <span class="icon-label">Postman</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/socketio.png" alt="Socket.io" />
+      <span class="icon-label">Socket.io</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/signalr.svg" alt="SignalR" />
+      <span class="icon-label">SignalR</span>
+    </div>
+    <div class="icon-item">
+      <img class="icon" src="assets/images/bruno.svg" alt="Bruno" />
+      <span class="icon-label">Bruno</span>
+    </div>
   </div>
-  <div class="github-container">
-    <a [ngClass]="mode === 'light' ? 'link' : 'link-light'" href="https://github.com/aschambers">Github</a>
+  <div style="margin-top: 1rem">
+    <a class="link" href="https://github.com/aschambers">GitHub</a>
   </div>
 </div>

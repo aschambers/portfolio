@@ -1,49 +1,142 @@
-<div (click)="toggleMode()" class="mode">
-  <img *ngIf="mode === 'light'" class="sun" src="assets/images/sun.png" />
-  <img *ngIf="mode === 'dark'" class="moon" src="assets/images/moon.png" />
+<div class="header">
+  <div class="name-block">
+    <h1 class="name">Allison Schambers</h1>
+    <p class="title">Senior Software Developer</p>
+  </div>
+  <div class="header-right">
+    <ul class="nav">
+      <li class="nav-link"><a class="nav-anchor" [routerLink]="'/'">About</a></li>
+      <li class="nav-link"><a class="nav-anchor" [routerLink]="'/projects'">Projects</a></li>
+      <li class="nav-link">
+        <a class="nav-anchor" href="assets/Allison_Schambers_Resume.pdf" target="_blank">Resume</a>
+      </li>
+    </ul>
+    <button (click)="toggleMode()" class="mode" aria-label="Toggle color mode">
+      @if (mode === 'light') {
+        <img class="sun" src="assets/images/sun.png" />
+      }
+      @if (mode === 'dark') {
+        <img class="moon" src="assets/images/moon.png" />
+      }
+    </button>
+  </div>
 </div>
 
-<div class="header">
-  <p class="name">Allison Schambers</p>
-  <ul class="nav">
-    <li class="nav-link" [routerLink]="'/'">About</li>
-    <li class="nav-link" [routerLink]="'/projects'">Projects</li>
-  </ul>
-</div>
+<h2 class="sr-only">Projects</h2>
 
 <div class="project-one">
-  <a href="https://zygarden.gg/">
-    <img id="project-one-img" [ngClass]="mode === 'light' ? 'border-dark' : 'border-light'" class="project-one-img" src="assets/images/zygarden.png" />
+  <a href="https://zygarden.gg/" target="_blank">
+    <img
+      id="project-one-img"
+      class="project-one-img"
+      src="assets/images/zygarden.png"
+      alt="Zygarden tournament app screenshot"
+    />
   </a>
   <div class="project-one-desc">
-    <p [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'">An Angular application that makes it easy to create and join Pokemon GO PVP tournaments. (not open source yet)</p>
+    <h3 class="project-title">Zygarden</h3>
+    <p>
+      Tournament management platform for the competitive Pokémon GO community, supporting Swiss,
+      Round Robin, and Single/Double Elimination formats. Features a Communities hub for recurring
+      event coordination, WCAG-compliant design, screen reader support, and internationalization
+      across multiple languages.
+    </p>
+    <div class="badges">
+      @for (
+        badge of [
+          'Angular',
+          'TypeScript',
+          'NX',
+          '.NET',
+          'PostgreSQL',
+          'Tailwind',
+          'OAuth 2.0',
+          'Jest',
+          'Digital Ocean',
+        ];
+        track badge
+      ) {
+        <span class="badge">{{ badge }}</span>
+      }
+    </div>
     <div class="project-one-links">
-      <a class="project-one-links-url" [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'" href="https://zygarden.gg/">url</a>
-      <a class="project-one-links-code" [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'" href="https://github.com/Zygarden/zygarden-frontend">code</a>
+      <a class="project-link-btn" href="https://zygarden.gg/" target="_blank">url</a>
     </div>
   </div>
 </div>
+
 <div class="project-two">
-  <div (click)="navigateToWebsite(true)">
-    <img id="project-two-img" [ngClass]="mode === 'light' ? 'border-dark' : 'border-light'" class="project-two-img" src="assets/images/sleepvisualizer.png" />
-  </div>
+  <a href="https://aschambers.github.io/sleep-visualizer/" target="_blank">
+    <img
+      id="project-two-img"
+      class="project-two-img"
+      src="assets/images/sleepvisualizer.png"
+      alt="Sleep Visualizer app screenshot"
+      loading="lazy"
+    />
+  </a>
   <div class="project-two-desc">
-    <p [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'">An Angular application will allow you to calculate the strength a recipe will give Snorlax in Pokemon Sleep and other info about game mechanics.</p>
+    <h3 class="project-title">Sleep Visualizer</h3>
+    <p>
+      Tool for Pokémon Sleep players to calculate recipe strength for Snorlax and explore game
+      mechanics, helping players optimize their in-game strategy with data-driven insights.
+    </p>
+    <div class="badges">
+      @for (badge of ['Angular', 'TypeScript', 'SCSS']; track badge) {
+        <span class="badge">{{ badge }}</span>
+      }
+    </div>
     <div class="project-two-links">
-      <a class="project-two-links-url" [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'" href="https://aschambers.github.io/sleep-visualizer/">url</a>
-      <a class="project-two-links-code" [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'" href="https://github.com/aschambers/sleep-visualizer">code</a>
+      <a
+        class="project-link-btn"
+        href="https://aschambers.github.io/sleep-visualizer/"
+        target="_blank"
+        >url</a
+      >
+      <a
+        class="project-link-btn"
+        href="https://github.com/aschambers/sleep-visualizer"
+        target="_blank"
+        >code</a
+      >
     </div>
   </div>
 </div>
+
 <div class="project-three">
-  <div (click)="navigateToWebsite(false)">
-    <img id="project-three-img" [ngClass]="mode === 'light' ? 'border-dark' : 'border-light'" class="project-three-img" src="assets/images/replayvisualizer.png" />
-  </div>
+  <a href="https://aschambers.github.io/replay-visualizer/" target="_blank">
+    <img
+      id="project-three-img"
+      class="project-three-img"
+      src="assets/images/replayvisualizer.png"
+      alt="Replay Visualizer app screenshot"
+      loading="lazy"
+    />
+  </a>
   <div class="project-three-desc">
-    <p [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'">An Angular application that parses battle replays to show trends and statistics.</p>
+    <h3 class="project-title">Replay Visualizer</h3>
+    <p>
+      Parses Pokémon GO battle replays to surface trends and statistics, giving competitive players
+      a data-driven edge in analyzing their performance.
+    </p>
+    <div class="badges">
+      @for (badge of ['Angular', 'TypeScript', 'SCSS']; track badge) {
+        <span class="badge">{{ badge }}</span>
+      }
+    </div>
     <div class="project-three-links">
-      <a class="project-three-links-url" [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'" href="https://aschambers.github.io/replay-visualizer/">url</a>
-      <a class="project-three-links-code" [ngClass]="mode === 'light' ? 'text-dark' : 'text-light'" href="https://github.com/aschambers/replay-visualizer">code</a>
+      <a
+        class="project-link-btn"
+        href="https://aschambers.github.io/replay-visualizer/"
+        target="_blank"
+        >url</a
+      >
+      <a
+        class="project-link-btn"
+        href="https://github.com/aschambers/replay-visualizer"
+        target="_blank"
+        >code</a
+      >
     </div>
   </div>
 </div>

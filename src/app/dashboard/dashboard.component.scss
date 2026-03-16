@@ -1,88 +1,107 @@
 .mode {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-toggle-bg);
+  border: 1px solid var(--color-toggle-border);
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sun,
+.moon {
+  padding: 0.3rem;
+  border: none;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  display: block;
 }
 
 .header {
-  padding-bottom: 0.2rem;
-  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem 1.2rem 1rem;
+  background-color: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-header-border);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .name {
-  padding-top: 1rem;
-  padding-left: 0.8rem;
-  font-size: 1.2em;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+}
+
+.title {
+  font-size: 0.85em;
+  opacity: 0.75;
+  margin-top: 0.1rem;
+  color: var(--color-text);
 }
 
 .nav {
   display: flex;
   flex-direction: row;
-  margin-top: 0.5rem;
   list-style-type: none;
-  text-align: center;
-  justify-content: center;
   cursor: pointer;
-  padding-top: 0.5rem;
+  padding: 0;
+  margin: 0;
+
   &-link {
-    margin: 0rem 1rem 0rem 1rem;
+    margin: 0 0.25rem;
     font-size: 1em;
     padding: 0.4rem;
     border-radius: 10%;
   }
+
   &-link:hover {
-    background-color: rgb(49, 49, 49, 0.1);
-    padding: 0.4rem;
+    background-color: rgba(128, 128, 128, 0.25);
     border-radius: 10%;
   }
 }
 
-.sun {
-  padding: 0.2rem;
-  border: 1px solid rgb(49, 49, 49, 0.01);
-  border-radius: 50%;
-  height: 25px;
-  width: 25px;
-  cursor: pointer;
-  margin-right: 0.5rem;
+.nav-anchor {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 0.65;
+  }
 }
 
-.moon {
-  padding: 0.2rem;
-  border: 1px solid rgb(49, 49, 49, 0.01);
-  border-radius: 50%;
-  height: 25px;
-  width: 25px;
-  cursor: pointer;
-  margin-right: 0.5rem;
+.project-title {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
 }
 
-.sun:hover {
-  border: 1px solid rgb(49, 49, 49);
-  border-radius: 50%;
-  padding: 0.2rem;
-}
-
-.moon:hover {
-  border: 1px solid rgb(49, 49, 49);
-  border-radius: 50%;
-  padding: 0.2rem;
-}
-
-.project-one, .project-two, .project-three {
+.project-one,
+.project-two,
+.project-three {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
   padding: 1.5rem;
-  color: white;
   max-width: 80rem;
+
   &-img {
     height: auto;
-    border: 1px solid white;
-    cursor: pointer;
+    border: 1px solid var(--color-section-border);
     border-radius: 1px;
     width: 100%;
   }
@@ -91,29 +110,54 @@
     margin-top: 0.5rem;
     text-align: center;
     padding: 1rem 10% 0rem 10%;
+    color: var(--color-text);
   }
 
   &-links {
-    padding-top: 0.5rem;
-    font-size: 1.2em;
-    &-url {
-      margin-right: 1rem;
-      text-decoration: none;
-    }
-    &-code {
-      margin-right: 1rem;
-      text-decoration: none;
-    }
+    padding-top: 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
   }
 }
 
+.project-link-btn {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--color-section-border);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 0.65;
+  }
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+  border: 1px solid var(--color-badge-border);
+  color: var(--color-text);
+}
 
 .text {
   &-light {
     color: #000000;
   }
   &-dark {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }
 
