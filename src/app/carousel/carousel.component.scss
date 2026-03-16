@@ -5,6 +5,10 @@
 .carousel-track {
   position: relative;
   width: 100%;
+
+  a {
+    display: block;
+  }
 }
 
 a .carousel-img {
@@ -18,10 +22,31 @@ a .carousel-img {
   border: 1px solid var(--color-section-border);
 }
 
-.carousel-btn {
+.carousel-zone {
   position: absolute;
-  top: calc(40vh - 5rem);
-  background-color: rgba(0, 0, 0, 0.35);
+  top: 0;
+  bottom: 0;
+  width: 5%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+
+  &--prev {
+    left: 0;
+  }
+
+  &--next {
+    right: 0;
+  }
+}
+
+.carousel-btn {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(4px);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -32,7 +57,6 @@ a .carousel-img {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
   padding: 0.4rem;
 
   svg {
@@ -42,7 +66,7 @@ a .carousel-img {
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.65);
-    transform: scale(1.1);
+    transform: translateY(-50%) scale(1.1);
   }
 
   &--prev {
@@ -62,8 +86,8 @@ a .carousel-img {
 }
 
 .carousel-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 50%;
   border: 1px solid var(--color-section-border);
   background-color: transparent;
