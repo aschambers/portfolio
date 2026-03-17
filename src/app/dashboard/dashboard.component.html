@@ -34,6 +34,38 @@
   </div>
 </div>
 
+<div class="project" [style.visibility]="chatappLoaded() ? 'visible' : 'hidden'">
+  <img
+    class="project-img"
+    src="assets/images/chatapp.png"
+    alt="Discord-Style Chat Application screenshot"
+    width="2302"
+    height="1813"
+    loading="lazy"
+    (load)="chatappLoaded.set(true)"
+  />
+  <div class="project-desc">
+    <h3 class="project-title">Discord-Style Chat Application</h3>
+    <p>
+      Real-time chat application featuring drag and drop functionality, dynamic server and chatroom
+      creation, private messaging, and video calling.
+    </p>
+    <div class="badges">
+      @for (badge of ['React', 'JavaScript', 'Node.js', 'PostgreSQL', 'Socket.io', 'SCSS', 'AWS']; track badge) {
+        <span class="badge">{{ badge }}</span>
+      }
+    </div>
+    <div class="project-links">
+      <a
+        class="project-link-btn"
+        href="https://github.com/aschambers/chatapp"
+        target="_blank"
+        >code</a
+      >
+    </div>
+  </div>
+</div>
+
 <div class="project" [style.visibility]="sleepLoaded() ? 'visible' : 'hidden'">
   <img
     class="project-img"

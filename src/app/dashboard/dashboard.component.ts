@@ -10,6 +10,7 @@ import { CarouselComponent, CarouselImage } from '../carousel/carousel.component
 })
 export class DashboardComponent {
   zygardenLoaded = signal(false);
+  chatappLoaded = signal(false);
   sleepLoaded = signal(false);
   replayLoaded = signal(false);
 
