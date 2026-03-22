@@ -37,10 +37,10 @@
 <div class="project" [style.visibility]="chatappLoaded() ? 'visible' : 'hidden'">
   <img
     class="project-img"
-    src="assets/images/chatapp.png"
+    src="assets/images/sanctrel.png"
     alt="Discord-Style Chat Application screenshot"
-    width="2302"
-    height="1813"
+    width="2608"
+    height="1814"
     loading="lazy"
     (load)="chatappLoaded.set(true)"
   />
@@ -51,15 +51,16 @@
       creation, private messaging, and video calling.
     </p>
     <div class="badges">
-      @for (badge of ['React', 'JavaScript', 'Node.js', 'PostgreSQL', 'Socket.io', 'SCSS', 'AWS']; track badge) {
+      @for (
+        badge of ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Socket.io', 'SCSS', 'Railway'];
+        track badge
+      ) {
         <span class="badge">{{ badge }}</span>
       }
     </div>
     <div class="project-links">
-      <a
-        class="project-link-btn"
-        href="https://github.com/aschambers/chatapp"
-        target="_blank"
+      <a class="project-link-btn" href="https://sanctrel.com" target="_blank">visit</a>
+      <a class="project-link-btn" href="https://github.com/aschambers/chatapp-next" target="_blank"
         >code</a
       >
     </div>
